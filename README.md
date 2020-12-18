@@ -1,6 +1,6 @@
-# couchbase-google-deployment-manager
+# couchbase-google-deployment-manager-mobile
 
-This is a Google Deployment Manger (DM) template that deploys Couchbase Enterprise to Google Compute Engine (GCE) on Google Cloud Platform (GCP).  [simple](simple) is probably the best place to start.
+This is a Google Deployment Manger (DM) template that deploys Couchbase Sync Gateway to Google Compute Engine (GCE) on Google Cloud Platform (GCP).  [simple](simple) is probably the best place to start.
 
 [marketplace](marketplace) is the wrapper code used in the [Couchbase Cloud Launcher offers](https://console.cloud.google.com/launcher/partners/couchbase-public) and probably best deployed directly from Cloud Launcher.
 

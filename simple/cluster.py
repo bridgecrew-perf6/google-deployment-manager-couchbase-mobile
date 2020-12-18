@@ -18,10 +18,11 @@ def GenerateConfig(context):
 
         groupProperties = {
             'runtimeconfigName': context.properties['runtimeconfigName'],
-            'serverVersion': context.properties['serverVersion'],
             'syncGatewayVersion': context.properties['syncGatewayVersion'],
             'couchbaseUsername': context.properties['couchbaseUsername'],
             'couchbasePassword': context.properties['couchbasePassword'],
+            'couchbaseConnectionString': context.properties['couchbaseConnectionstring'],
+            'couchbaseBucketName': context.properties['couchbaseBucketName'],
             'license': context.properties['license'],
             'cluster': context.properties['cluster'],
             'region': context.properties['region'],
