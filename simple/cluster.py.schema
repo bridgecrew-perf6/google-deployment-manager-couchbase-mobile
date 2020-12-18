@@ -4,7 +4,6 @@ imports:
 
 required:
   - license
-  - serverVersion
   - syncGatewayVersion
   - couchbaseUsername
   - couchbasePassword
@@ -12,18 +11,21 @@ required:
   - cluster
   - groups
   - runtimeconfigName
-
+  - couchbaseConnectionstring
+  - couchbaseBucketName
+  
 properties:
   license:
     enum:
       - byol
       - hourly-pricing
     description: Type of Couchbase license to be supported by the deployment.
-  serverVersion:
-    type: string
   syncGatewayVersion:
     type: string
-
+  couchbaseConnectionstring:
+    type: string
+  couchbaseBucketName:
+    type: string
   couchbaseUsername:
     type: string
     default: couchbase

@@ -7,28 +7,17 @@ def GenerateConfig(context):
     config['resources'] = []
     config['outputs'] = []
 
-    couchbaseUsername='couchbase'
-    couchbasePassword = GeneratePassword()
-
-    config['outputs'].append({
-        'name': 'couchbaseUsername',
-        'value': couchbaseUsername
-    })
-    config['outputs'].append({
-        'name': 'couchbasePassword',
-        'value': couchbasePassword
-    })
-
     clusters = GetClusters(context)
 
     deployment = {
         'name': 'deployment',
         'type': 'deployment.py',
         'properties': {
-            'serverVersion': context.properties['serverVersion'],
             'syncGatewayVersion': context.properties['syncGatewayVersion'],
-            'couchbaseUsername': couchbaseUsername,
-            'couchbasePassword': couchbasePassword,
+            'couchbaseUsername': context.properties['couchbaseUsername'],
+            'couchbasePassword': context.properties['couchbasePassword'],
+            'couchbaseConnectionString': context.properties['couchbaseConnectionstring'],
+            'couchbaseBucketName': context.properties['couchbaseBucketName'],
             'license': license,
             'clusters': clusters
         }
@@ -53,16 +42,7 @@ def GetClusters(context):
         cluster = {
             'cluster': region,
             'region': region,
-            'groups':
-            [
-                {
-                    'group': 'server',
-                    'diskSize': context.properties['serverDiskSize'],
-                    'nodeCount': context.properties['serverNodeCount'],
-                    'nodeType': context.properties['serverNodeType'],
-                    'services': ['data','query','index','fts', 'eventing', 'analytics']
-                }
-            ]
+            'groups': []
         }
         if context.properties['syncGatewayNodeCount']>0:
             cluster['groups'].append({

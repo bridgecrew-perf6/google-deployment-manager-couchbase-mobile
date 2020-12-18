@@ -25,10 +25,11 @@ def GenerateConfig(context):
             'type': 'cluster.py',
             'properties': {
                 'runtimeconfigName': runtimeconfigName,
-                'serverVersion': context.properties['serverVersion'],
                 'syncGatewayVersion': context.properties['syncGatewayVersion'],
                 'couchbaseUsername': context.properties['couchbaseUsername'],
                 'couchbasePassword': context.properties['couchbasePassword'],
+                'couchbaseConnectionstring': context.properties['couchbaseConnectionstring'],
+                'couchbaseBucketName': context.properties['couchbaseBucketName'],
                 'license': context.properties['license'],
                 'cluster': cluster['cluster'],
                 'region': cluster['region'],

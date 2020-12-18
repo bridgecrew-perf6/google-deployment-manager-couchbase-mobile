@@ -1,6 +1,6 @@
 # GCP Marketplace
 
-This folder contains artifacts for the Couchbase GCP Marketplace offer.  This should not be used directly, but instead through the GCP Marketplace.
+This folder contains artifacts for the Couchbase Sync Gateway GCP Marketplace offer.  This should not be used directly, but instead through the GCP Marketplace.
 
 # Build VM Image
 
@@ -90,8 +90,8 @@ Couchbase has multiple solutions on the GCP Marketplace.  The offers can be edit
 ## 1 - Solution Metadata
 
 ### Solution Name
-* couchbase-enterprise-edition
-* couchbase-enterprise-edition-byol
+* couchbase-sync-gateway-enterprise-edition
+* couchbase-sync-gateway-enterprise-edition-byol
 
 ### Search Metadata
 Couchbase, NoSQL, Big Data, Cache, Database
@@ -106,8 +106,8 @@ Couchbase, NoSQL, Big Data, Cache, Database
 ## 2 - Solution Details
 
 ### Name of Solution
-* Couchbase Enterprise Edition
-* Couchbase Enterprise Edition (BYOL)
+* Couchbase Sync Gateway Enterprise Edition
+* Couchbase Sync Gateway Enterprise Edition (BYOL)
 
 ### Tagline
 The system of engagement database for web, mobile and IoT
@@ -116,10 +116,10 @@ The system of engagement database for web, mobile and IoT
 [./resources/en-us/logo.png](./resources/en-us/logo.png)
 
 ### Solution Description
-Couchbase Server provides highly elastic, available, scalable & real-time big data management system with consistent high performance, flexible global deployment topologies and a set of native SDKs to ease development & deployment of modern applications.
+Couchbase Sync Gateway provides highly elastic, available, scalable & real-time big data management system with consistent high performance, flexible global deployment topologies and a set of native SDKs to ease development & deployment of modern applications.
 
 ### Price Description
-This template includes a license for Couchbase Enterprise Edition and <a href="https://www.couchbase.com/support-policy">Silver Support</a>.
+This template includes a license for Couchbase Sync Gateway Enterprise Edition and <a href="https://www.couchbase.com/support-policy">Silver Support</a>.
 
 This template is for bring your own license (BYOL) users.  To purchase a license go <a href="https://www.couchbase.com/subscriptions-and-support">here</a>.
 
@@ -127,7 +127,7 @@ This template is for bring your own license (BYOL) users.  To purchase a license
 https://www.couchbase.com/partners/google/
 
 ### Version
-Couchbase EE
+Couchbase Sync Gateway EE
 
 ### Category ID
 * Big Data
@@ -164,7 +164,7 @@ With Couchbase customers all around the world, our support team provides global 
 http://support.couchbase.com/
 
 ### EULA URL
-https://www.couchbase.com/ESLA02152018
+https://www.couchbase.com/ESLA08042020
 
 ## 6 - Deployment Package
 

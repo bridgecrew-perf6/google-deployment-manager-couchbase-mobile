@@ -89,8 +89,6 @@ def GenerateInstanceTemplateConfig(context, runtimeconfigName):
 
     if 'syncGateway' in context.properties['services']:
         sourceImage = _SyncGatewayImageUrl(license, useImageFamily)
-    else:
-        sourceImage = _ServerImageUrl(license, useImageFamily)
 
     clusterName = context.properties['cluster']
     groupName = context.properties['group']
@@ -204,29 +202,15 @@ def GenerateStartupScript(context):
     script += context.imports['startupCommon.sh']
 
     # GCP is now running the startup script on reboot.  This is a workaround.
-    script += 'if [ -d "/opt/couchbase" ]; then\n'
-    script += '  echo "Couchbase Server is already installed.  Exiting"\n'
-    script += '  exit\n'
-    script += 'elif [ -d "/home/sync_gateway" ]; then\n'
+    script += 'if [ -d "/home/sync_gateway" ]; then\n'
     script += '  echo "Sync Gateway is already installed.  Exiting."\n'
     script += '  exit\n'
     script += 'fi\n\n'
-
+    script += 'couchbaseUsername="' + context.properties['couchbaseUsername'] + '"\n'
+    script += 'couchbasePassword="' + context.properties['couchbasePassword'] + '"\n'
+    script += 'couchbaseConnectionstring="' + context.properties['couchbaseConnectionstring'] + '"\n'
+    script += 'couchbaseBucketName="' + context.properties['couchbaseBucketName'] + '"\n'
     services=context.properties['services']
-    if 'data' in services or 'query' in services or 'index' in services or 'fts' in services or 'eventing' in services or 'analytics' in services:
-        script += 'CLUSTER="' + context.properties['cluster'] + '"\n'
-        script += 'serverVersion="' + context.properties['serverVersion'] + '"\n'
-        script += 'couchbaseUsername="' + context.properties['couchbaseUsername'] + '"\n'
-        script += 'couchbasePassword="' + context.properties['couchbasePassword'] + '"\n'
-        script += 'nodeCount="' + str(context.properties['clusterNodesCount']) + '"\n'
-
-        servicesParameter=''
-        for service in services:
-            servicesParameter += service + ','
-        servicesParameter=servicesParameter[:-1]
-
-        script += 'services="' + servicesParameter + '"\n\n'
-        script+= context.imports['server.sh']
 
     if 'syncGateway' in services:
         script += 'syncGatewayVersion="' + context.properties['syncGatewayVersion'] + '"\n'
